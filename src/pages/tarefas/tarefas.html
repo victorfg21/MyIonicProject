@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Tarefas
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <button ion-item *ngFor="let t of tarefas" (click)="selecionaTarefa(t.codigo)">
+      {{t.descricao}} | {{t.data}} | {{t.prioridade}}
+    </button>
+  </ion-list>
+  <div class="botoes">
+    <button ion-button round color="primary" (click)="novaTarefa()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </div>
+</ion-content>

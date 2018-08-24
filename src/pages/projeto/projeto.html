@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Projeto
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label color="primary">Nome: </ion-label>
+      <ion-input type="text" placeholder="Nome do projeto" [(ngModel)]="nomeProjeto" ng-mouseleave="nomeProjeto" required #nome="ngModel"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <ion-card [hidden]="nome.valid || nome.pristine" class="alerta">
+    <ion-card-content>
+      O nome do projeto não pode ser vazio!
+    </ion-card-content>
+  </ion-card>
+
+  <div class="botoes">
+    <button ion-button round color="primary" (click)="alteraProjeto()" [disabled]="!nome.valid" [hidden]="novo">
+      <ion-icon name="checkmark"></ion-icon>
+    </button>
+    <button ion-button round color="danger" (click)="excluiProjeto()" [hidden]="novo">
+      <ion-icon name="trash"></ion-icon>
+    </button>
+    <button ion-button round color="primary" (click)="adicionaProjeto()" [hidden]="!novo">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </div>
+</ion-content>
