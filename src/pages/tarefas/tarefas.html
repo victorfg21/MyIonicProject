@@ -9,7 +9,8 @@
 <ion-content padding>
   <ion-list>
     <button ion-item *ngFor="let t of tarefas" (click)="selecionaTarefa(t.codigo)">
-      {{t.descricao}} | {{t.data}} | {{t.prioridade}}
+      <p>{{t.descricao}}</p>
+      <p>{{t.codigoProjeto}} - {{t.data}} - {{t.prioridade}}</p>
     </button>
   </ion-list>
   <div class="botoes">

@@ -11,8 +11,8 @@ export class TarefasPage {
 
   tarefas: Tarefa[] = [];
 
-  constructor(public ts: TarefasService,
-              public navCtrl: NavController) {
+  constructor(public navCtrl: NavController,
+              public ts: TarefasService) {
     this.tarefas = ts.getTarefas();
   }
 
