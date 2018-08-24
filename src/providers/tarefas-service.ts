@@ -62,7 +62,7 @@ export class TarefasService {
     );
   }
 
-  /*alteraTarefa(codigo: number, descricao: string, data: Date, prioridade: number): void {
+  alteraTarefa(codigo: number, descricao: string, data: Date, prioridade: number): void {
     for (let i = 0; this.tarefas.length; i++) {
       if (this.tarefas[i].codigo == codigo) {
         this.tarefas[i].descricao = descricao;
@@ -91,5 +91,5 @@ export class TarefasService {
       data: dtTarefa,
       prioridade: prioridadeTarefa
     });
-  }*/
+  }
 }

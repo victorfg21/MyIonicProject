@@ -9,8 +9,14 @@
 <ion-content padding>
   <ion-list>
     <button ion-item *ngFor="let t of tarefas" (click)="selecionaTarefa(t.codigo)">
-      <p>{{t.descricao}}</p>
-      <p>{{t.codigoProjeto}} - {{t.data}} - {{t.prioridade}}</p>
+      <h2>{{ t.descricao }}</h2>
+      <p>{{ t.nomeProjeto }} - <ion-icon name="calendar"></ion-icon>{{ t.data | date: 'dd/MM/yyyy' }}</p>
+      <ion-badge item-end
+        [class.alta]="t.prioridade==1"
+        [class.media]="t.prioridade==2"
+        [class.baixa]="t.prioridade==3">
+        {{ t.prioridade }}
+      </ion-badge>
     </button>
   </ion-list>
   <div class="botoes">

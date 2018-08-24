@@ -7,16 +7,18 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { TabsPage } from '../pages/tabs/tabs';
 import { TarefasPage } from '../pages/tarefas/tarefas';
+import { TarefaPage } from '../pages/tarefa/tarefa';
+import { TarefasService } from '../providers/tarefas-service';
 import { ProjetosPage } from '../pages/projetos/projetos';
 import { ProjetoPage } from '../pages/projeto/projeto';
 import { ProjetosService } from '../providers/projetos-service';
-import { TarefasService } from '../providers/tarefas-service';
 
 @NgModule({
   declarations: [
     MyApp,
     TabsPage,
     TarefasPage,
+    TarefaPage,
     ProjetosPage,
     ProjetoPage
   ],
@@ -29,6 +31,7 @@ import { TarefasService } from '../providers/tarefas-service';
     MyApp,
     TabsPage,
     TarefasPage,
+    TarefaPage,
     ProjetosPage,
     ProjetoPage
   ],
