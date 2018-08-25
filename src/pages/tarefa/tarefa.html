@@ -9,19 +9,40 @@
 <ion-content padding>
   <ion-list>
     <ion-item>
-      <ion-label color="primary">Descrição: </ion-label>
-      <ion-input type="text" placeholder="Nome da tarefa" [(ngModel)]="nomeTarefa" ng-mouseleave="nomeTarefa" required #tarefa="ngModel"></ion-input>
+      <ion-label color="primary">Descrição</ion-label>
+      <ion-input type="text" placeholder="Nome da tarefa" [(ngModel)]="descricao" ng-mouseleave="descricao" required #desc="ngModel"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary">Projeto</ion-label>
+      <ion-select [(ngModel)]="codigoProjeto">
+        <ion-option *ngFor="let p of projetos" value="{{p.codigo}}">
+          {{p.projeto}}
+        </ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+        <ion-label color="primary">Data</ion-label>
+        <ion-datetime displayFormat="DD/MM/YYYY" min="2018" max="2050"[(ngModel)]="data">
+        </ion-datetime>
+    </ion-item>
+    <ion-item>
+        <ion-label color="primary">Prioridade</ion-label>
+        <ion-select [(ngModel)]="prioridade">
+            <ion-option value="1">Alta</ion-option>
+            <ion-option value="2">Média</ion-option>
+            <ion-option value="3">Baixa</ion-option>
+          </ion-select>
     </ion-item>
   </ion-list>
 
-  <ion-card [hidden]="tarefa.valid || tarefa.pristine" class="alerta">
+  <ion-card [hidden]="desc.valid || desc.pristine" class="alerta">
     <ion-card-content>
       A descrição da tarefa não pode ser vazia!
     </ion-card-content>
   </ion-card>
 
   <div class="botoes">
-    <button ion-button round color="primary" (click)="alteraTarefa()" [disabled]="!tarefa.valid" [hidden]="novo">
+    <button ion-button round color="primary" (click)="alteraTarefa()" [disabled]="!desc.valid" [hidden]="novo">
       <ion-icon name="checkmark"></ion-icon>
     </button>
     <button ion-button round color="danger" (click)="excluiTarefa()" [hidden]="novo">

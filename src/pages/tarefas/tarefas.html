@@ -11,6 +11,8 @@
     <button ion-item *ngFor="let t of tarefas" (click)="selecionaTarefa(t.codigo)">
       <h2>{{ t.descricao }}</h2>
       <p>{{ t.nomeProjeto }} - <ion-icon name="calendar"></ion-icon>{{ t.data | date: 'dd/MM/yyyy' }}</p>
+
+      <ion-icon item-end name="md-stopwatch"></ion-icon>
       <ion-badge item-end
         [class.alta]="t.prioridade==1"
         [class.media]="t.prioridade==2"

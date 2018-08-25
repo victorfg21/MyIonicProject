@@ -21,7 +21,9 @@ export class TarefasPage {
 
     this.tarefas = ts.getTarefas();
     this.projetos = ps.getProjetos();
+  }
 
+  ionViewWillEnter() {
     this.tarefas.map(
       t => {
         for (let i = 0; i < this.projetos.length; i++) {

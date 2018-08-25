@@ -62,9 +62,10 @@ export class TarefasService {
     );
   }
 
-  alteraTarefa(codigo: number, descricao: string, data: Date, prioridade: number): void {
+  alteraTarefa(codigo: number, codigoProjeto: number, descricao: string, data: Date, prioridade: number): void {
     for (let i = 0; this.tarefas.length; i++) {
       if (this.tarefas[i].codigo == codigo) {
+        this.tarefas[i].codigoProjeto = codigoProjeto;
         this.tarefas[i].descricao = descricao;
         this.tarefas[i].data = data;
         this.tarefas[i].prioridade = prioridade;
