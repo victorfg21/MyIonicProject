@@ -1,22 +1,59 @@
 <ion-header>
   <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
     <ion-title>
       Tarefas
     </ion-title>
   </ion-navbar>
 </ion-header>
 
+<ion-menu [content]="menu">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Filtros</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-item-group>
+          <ion-item-divider class="light">POR DATA</ion-item-divider>
+        <button ion-item (click)="limpaFiltros()">
+          Todas
+        </button>
+        <button ion-item (click)="filtroDias('h')">
+          Até hoje
+        </button>
+        <button ion-item (click)="filtroDias(1)">
+          Até amanhã
+        </button>
+        <button ion-item (click)="filtroDias(7)">
+          Até a próxima semana
+        </button>
+      </ion-item-group>
+      <ion-item-group>
+        <ion-item-divider class="light">POR PROJETO</ion-item-divider>
+        <button ion-item *ngFor="let p of projetos" (click)="filtroProjeto(p.codigo)">
+          {{p.projeto}}
+        </button>
+      </ion-item-group>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+
+<ion-nav id="nav" #menu [root]="rootPage"></ion-nav>
+
 <ion-content padding>
   <ion-list>
-    <button ion-item *ngFor="let t of tarefas" (click)="selecionaTarefa(t.codigo)">
+    <button ion-item *ngFor="let t of tarefas | filtro: filtroTarefas" (click)="selecionaTarefa(t.codigo)">
       <h2>{{ t.descricao }}</h2>
-      <p>{{ t.nomeProjeto }} - <ion-icon name="calendar"></ion-icon>{{ t.data | date: 'dd/MM/yyyy' }}</p>
+      <p>{{ t.nomeProjeto }} -
+        <ion-icon name="calendar"></ion-icon>{{ t.data | date: 'dd/MM/yyyy' }}</p>
 
       <ion-icon item-end name="md-stopwatch"></ion-icon>
-      <ion-badge item-end
-        [class.alta]="t.prioridade==1"
-        [class.media]="t.prioridade==2"
-        [class.baixa]="t.prioridade==3">
+      <ion-badge item-end [class.alta]="t.prioridade==1" [class.media]="t.prioridade==2" [class.baixa]="t.prioridade==3">
         {{ t.prioridade }}
       </ion-badge>
     </button>

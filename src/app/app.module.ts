@@ -7,7 +7,7 @@ import { DatePipe } from '@angular/common';
 
 import { MyApp } from './app.component';
 import { TabsPage } from '../pages/tabs/tabs';
-import { TarefasPage } from '../pages/tarefas/tarefas';
+import { TarefasPage, Filtro } from '../pages/tarefas/tarefas';
 import { TarefaPage } from '../pages/tarefa/tarefa';
 import { TarefasService } from '../providers/tarefas-service';
 import { ProjetosPage } from '../pages/projetos/projetos';
@@ -20,6 +20,7 @@ import { ProjetosService } from '../providers/projetos-service';
     TabsPage,
     TarefasPage,
     TarefaPage,
+    Filtro,
     ProjetosPage,
     ProjetoPage
   ],
